@@ -7,6 +7,8 @@ import org.springframework.stereotype.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+
 @Service
 @Transactional
 public class VehicleService {
@@ -28,6 +30,20 @@ public class VehicleService {
             throw new RuntimeException("Vehicle not found");
         else
             vehicleRepository.deleteById(id);
+    }
+
+    public Vehicle getRandomVehicle() {
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+
+        if (!vehicles.isEmpty()) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(vehicles.size()) + 1;
+
+            Vehicle randomVehicle = vehicles.get(randomIndex);
+            return randomVehicle;
+        } else {
+            throw new RuntimeException("No vehicles found in the database");
+        }
     }
 
 }

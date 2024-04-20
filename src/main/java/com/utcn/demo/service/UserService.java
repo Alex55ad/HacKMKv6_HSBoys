@@ -33,8 +33,14 @@ public class UserService {
     }
 
     public User loginUser(String username, String password) {
-        Optional<User> optionalUser = userRepository.findByUsernameAndPassword(username, password);
-        return optionalUser.orElse(null);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            //if (passwordEncoder.matches(password, user.getPassword())) {
+            return user;
+            // }
+        }
+        return null;
     }
 
     public User createUser(User user) {
@@ -51,6 +57,8 @@ public class UserService {
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username already exists");
         }
+        // String encryptedPassword = passwordEncoder.encode(user.getPassword());
+        // user.setPassword(encryptedPassword);
         return this.userRepository.save(user);
     }
 

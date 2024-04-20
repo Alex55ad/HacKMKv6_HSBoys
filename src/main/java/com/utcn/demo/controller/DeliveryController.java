@@ -28,5 +28,10 @@ public class DeliveryController {
     public void deleteDeliveryById(@RequestParam int id) {
         deliveryService.deleteDeliveryById(id);
     }
+
+    @PostMapping("/createForOrderInProgress")
+    public void createDeliveryForOrderInProgress(@RequestParam int orderId) {
+        deliveryService.createDeliveryForOrderInProgress(orderId);
+    }
 }
 

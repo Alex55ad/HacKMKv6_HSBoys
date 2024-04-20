@@ -42,7 +42,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/create")
+    @PostMapping("/signin")
     public User createUser(@RequestBody User user){
         return userService.createUser(user);
     }

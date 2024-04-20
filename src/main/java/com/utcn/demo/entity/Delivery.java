@@ -3,6 +3,7 @@ package com.utcn.demo.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 @Entity
 @Table(name ="Delivery")
@@ -76,4 +77,5 @@ public class Delivery {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
 }

@@ -27,4 +27,9 @@ public class ProductController {
     public void deleteProductById(@RequestParam int id){
         productService.deleteProductById(id);
     }
+
+    @PutMapping("/updateScore")
+    public void updateProductScore(@RequestParam int productId) {
+        productService.updateProductScore(productId);
+    }
 }

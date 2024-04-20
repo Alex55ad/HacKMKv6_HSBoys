@@ -28,16 +28,28 @@ public class Product {
     @Column(name = "description")  // New column for specifications
     private String description;
 
+    @Column(name = "score")
+    private BigDecimal score;
+
     public Product() {
     }
 
-    public Product(int id, String name, List<OrderProduct> orderProductList, BigDecimal price, int stock, String description) {
+    public Product(int id, String name, List<OrderProduct> orderProductList, BigDecimal price, int stock, String description, BigDecimal score) {
         this.id = id;
         this.name = name;
         this.orderProductList = orderProductList;
         this.price = price;
         this.stock = stock;
         this.description = description;
+        this.score = score;
+    }
+
+    public BigDecimal getScore() {
+        return score;
+    }
+
+    public void setScore(BigDecimal score) {
+        this.score = score;
     }
 
     public int getId() {
