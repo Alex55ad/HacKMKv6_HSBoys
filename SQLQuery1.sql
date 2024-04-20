@@ -39,7 +39,7 @@ VALUES
 CREATE TABLE Orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    order_date DATE,
+    order_date DATETIME DEFAULT NOW(),
     total_amount DECIMAL(10, 2),
     status VARCHAR(50),
     FOREIGN KEY (user_id) REFERENCES UserAccounts(id)
@@ -59,7 +59,7 @@ CREATE TABLE Products (
     name VARCHAR(100),
     description TEXT,
     price DECIMAL(10, 2),
-    views INT
+    stock INT DEFAULT 0
 );
 
 -- Insert random product data
@@ -74,6 +74,7 @@ VALUES
 CREATE TABLE Vehicles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(100),
+    last_maintenance DATETIME DEFAULT  NOW(),
     registration_number VARCHAR(50)
 );
 
@@ -128,16 +129,17 @@ CREATE TABLE BusinessRegister (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     address VARCHAR(100),
-    phone_number VARCHAR(20)
+    phone_number VARCHAR(20),
+    registration_password varchar(20)
 );
 
 -- Insert random business data
-INSERT INTO BusinessRegister (name, address, phone_number)
+INSERT INTO BusinessRegister (name, address, phone_number, registration_password)
 VALUES
-    ('ABC Corp', '123 Main St', '555-1234'),
-    ('XYZ Inc', '456 Elm St', '555-5678'),
-    ('123 Enterprises', '789 Oak St', '555-9012'),
-    ('456 Ltd', '101 Pine St', '555-3456');
+    ('ABC Corp', '123 Main St', '555-1234', 'aBcDeFgH'),
+    ('XYZ Inc', '456 Elm St', '555-5678', 'zYxWvUt'),
+    ('123 Enterprises', '789 Oak St', '555-9012', '1E2n3P4r'),
+    ('456 Ltd', '101 Pine St', '555-3456', '6d5L4tD6');
 
 -- Table for order reviews
 CREATE TABLE OrderReviews (
