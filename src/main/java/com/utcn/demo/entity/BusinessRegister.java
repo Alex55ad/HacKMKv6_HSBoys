@@ -8,7 +8,7 @@ public class BusinessRegister {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "name")
     private String name;
@@ -25,7 +25,7 @@ public class BusinessRegister {
     public BusinessRegister() {
     }
 
-    public BusinessRegister(Long id, String name, String address, String phoneNumber, String regPassword) {
+    public BusinessRegister(int id, String name, String address, String phoneNumber, String regPassword) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -33,11 +33,11 @@ public class BusinessRegister {
         this.regPassword = regPassword;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

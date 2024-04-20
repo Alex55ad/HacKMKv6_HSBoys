@@ -6,23 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequestMapping("/orders")
 @RestController
 public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/getAllOrders")
+    @GetMapping("/getAll")
     public List<Order> retrieveAllOrders(){
         return orderService.retrieveOrder();
     }
 
-    @PostMapping("/insertOrder")
+    @PostMapping("/insert")
     public Order insertOrder(@RequestBody Order order){
         return orderService.insertOrder(order);
     }
 
-    @DeleteMapping("/deleteOrderById")
+    @DeleteMapping("/deleteById")
     public void deleteOrderById(@RequestParam int id){
         orderService.deleteOrderById(id);
     }

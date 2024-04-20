@@ -9,7 +9,7 @@ public class OrderReview {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "order_id", referencedColumnName = "id")
@@ -31,7 +31,7 @@ public class OrderReview {
     public OrderReview() {
     }
 
-    public OrderReview(Long id, Order order, User user, Integer rating, String review, LocalDateTime reviewDate) {
+    public OrderReview(int id, Order order, User user, Integer rating, String review, LocalDateTime reviewDate) {
         this.id = id;
         this.order = order;
         this.user = user;
@@ -40,11 +40,11 @@ public class OrderReview {
         this.reviewDate = reviewDate;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
