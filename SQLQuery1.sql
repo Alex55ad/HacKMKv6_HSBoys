@@ -33,8 +33,8 @@ VALUES
 
 -- Table for orders
 CREATE TABLE Orders (
-    order_id INT PRIMARY KEY,
-    user_id INT,
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+	user_id INT AUTO_INCREMENT,
     order_date DATE,
     total_amount DECIMAL(10, 2),
     status VARCHAR(50),
@@ -200,4 +200,14 @@ VALUES
 
 SELECT * FROM OrderReviews;
 
+CREATE TABLE OrderedProducts (
+    order_id INT PRIMARY KEY,
+    user_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10, 2),
+    status VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES UserAccounts(user_id)
+);
 
+
+SELECT * FROM OrderedProducts;
