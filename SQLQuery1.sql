@@ -19,7 +19,7 @@ VALUES
     ('Emily Brown', 'emily@example.com', 'Marketing Specialist');
 
 -- Table for user accounts
-CREATE TABLE UserAccounts (
+CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100),
     email VARCHAR(100),
@@ -28,7 +28,7 @@ CREATE TABLE UserAccounts (
 );
 
 -- Insert random user account data
-INSERT INTO UserAccounts (username, email, password, account_type)
+INSERT INTO Users (username, email, password, account_type)
 VALUES
     ('john_doe', 'john@example.com', 'password1', 'normal'),
     ('jane_smith', 'jane@example.com', 'password2', 'company'),
@@ -42,7 +42,7 @@ CREATE TABLE Orders (
     order_date DATETIME DEFAULT NOW(),
     total_amount DECIMAL(10, 2),
     status VARCHAR(50),
-    FOREIGN KEY (user_id) REFERENCES UserAccounts(id)
+    FOREIGN KEY (user_id) REFERENCES Users(id)
 );
 
 -- Insert random order data-----------------------------------------------------------------------------
@@ -59,7 +59,8 @@ CREATE TABLE Products (
     name VARCHAR(100),
     description TEXT,
     price DECIMAL(10, 2),
-    stock INT DEFAULT 0
+    stock INT DEFAULT 0,
+    score DECIMAL(10,2) DEFAULT 0.00
 );
 
 -- Insert random product data
@@ -106,26 +107,26 @@ VALUES
     (4, '2024-04-24', 'Delivered', 4);
 
 -- Table for user reviews
-CREATE TABLE ProductReviews (
+CREATE TABLE Product_Reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     product_id INT,
     rating INT,
     review TEXT,
     review_date DATETIME DEFAULT NOW(),
-    FOREIGN KEY (user_id) REFERENCES UserAccounts(id),
+    FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (product_id) REFERENCES Products(id)
 );
 
 -- Insert random user review data
-INSERT INTO ProductReviews (user_id, product_id, rating, review, review_date)
+INSERT INTO Product_Reviews (user_id, product_id, rating, review, review_date)
 VALUES
     (1, 1, 4, 'Effective pain relief, highly recommended.', '2024-04-20'),
     (2, 2, 5, 'Great for inflammation, worked wonders for me.', '2024-04-21'),
     (3, 3, 3, 'Standard antibiotic, nothing special.', '2024-04-22');
 
 -- Table for registered businesses
-CREATE TABLE BusinessRegister (
+CREATE TABLE Business_Register (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     address VARCHAR(100),
@@ -134,7 +135,7 @@ CREATE TABLE BusinessRegister (
 );
 
 -- Insert random business data
-INSERT INTO BusinessRegister (name, address, phone_number, registration_password)
+INSERT INTO Business_Register (name, address, phone_number, registration_password)
 VALUES
     ('ABC Corp', '123 Main St', '555-1234', 'aBcDeFgH'),
     ('XYZ Inc', '456 Elm St', '555-5678', 'zYxWvUt'),
@@ -142,7 +143,7 @@ VALUES
     ('456 Ltd', '101 Pine St', '555-3456', '6d5L4tD6');
 
 -- Table for order reviews
-CREATE TABLE OrderReviews (
+CREATE TABLE Order_Reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     user_id INT,
@@ -150,9 +151,9 @@ CREATE TABLE OrderReviews (
     review TEXT,
     review_date DATETIME DEFAULT NOW(),
     FOREIGN KEY (order_id) REFERENCES Orders(id),
-    FOREIGN KEY (user_id) REFERENCES UserAccounts(id)
+    FOREIGN KEY (user_id) REFERENCES Users(id)
 );
-INSERT INTO OrderReviews (order_id, user_id, rating, review, review_date)
+INSERT INTO Order_Reviews (order_id, user_id, rating, review, review_date)
 VALUES
     (1, 1, 5, 'Excellent service and fast delivery!', '2024-04-20'),
     (2, 2, 4, 'Good experience overall, but delivery was slightly delayed.', '2024-04-21'),
