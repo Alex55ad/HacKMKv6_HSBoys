@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regsiterpage Page</title>
+    <link rel="icon" type="image/x-icon" href="ico_.png">
+    <style>
+        /* CSS styles for the login page */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('back_1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 5px;
+            /* Transparent white color */
+        }
+        
+        .container h2 {
+            text-align: center;
+        }
+        
+        .container h3 {
+            text-align: center;
+        }
+        
+        .container h4 {
+            text-align: center;
+        }
+        
+        .container form input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        
+        .container form input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .container form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .container p {
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register </h1>
+        <form id="registerForm">
+            <p>Welcome to the register page!</p>
+
+            <input type="text" id="username" placeholder="Username">
+
+            <input type="text" id="useremail" placeholder="UserEmail">
+            <input type="text" id="companyname" placeholder="Companyname">
+            <input type="text" id="userId" placeholder="UserID">
+            <input type="file" id="profilePic" name="profilePic" accept="image/*">
+            <input type="password" id="password" placeholder="Password">
+            <input type="submit" id="registerButton" value="Register">
+            <p>If you already have an account, <a href="index.html">login here</a>.</p>
+
+
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
