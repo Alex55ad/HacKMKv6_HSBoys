@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class OrderService {
     @Autowired
@@ -25,4 +27,12 @@ public class OrderService {
         else
             this.orderRepository.deleteById(id);
     }
+
+    public Order findOrderById(int id) {
+        Optional<Order> order = orderRepository.findById(id);
+        if(order.isPresent())
+            return order.get();
+        else throw new RuntimeException("Order not found");
+    }
+
 }

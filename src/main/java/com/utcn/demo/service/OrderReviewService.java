@@ -1,5 +1,6 @@
 package com.utcn.demo.service;
 
+import com.utcn.demo.entity.Delivery;
 import com.utcn.demo.entity.OrderReview;
 import com.utcn.demo.repository.OrderReviewRepository;
 import jakarta.transaction.Transactional;
@@ -30,6 +31,13 @@ public class OrderReviewService {
             throw new RuntimeException("Order review not found");
         else
             orderReviewRepository.deleteById(id);
+    }
+    public OrderReview findOrderReviewById(int id) {
+        Optional<OrderReview> optional = orderReviewRepository.findById(id);
+        if(optional.isPresent()){
+            return  optional.get();
+        }
+        else throw new RuntimeException("Order review not found");
     }
 
 }

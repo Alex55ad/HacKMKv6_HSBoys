@@ -45,5 +45,4 @@ public class VehicleService {
             throw new RuntimeException("No vehicles found in the database");
         }
     }
-
 }

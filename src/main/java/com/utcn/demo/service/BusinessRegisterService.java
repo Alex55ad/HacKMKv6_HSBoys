@@ -31,4 +31,13 @@ public class BusinessRegisterService {
             businessRegisterRepository.deleteById(id);
     }
 
+    public BusinessRegister findBusinessRegisterById(int id) {
+        Optional<BusinessRegister> optional = businessRegisterRepository.findById(id);
+        if(optional.isPresent()){
+            return  optional.get();
+        }
+        else throw new RuntimeException("BusinessRegisterNotFound");
+    }
+
+
 }

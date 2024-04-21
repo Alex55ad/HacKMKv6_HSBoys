@@ -2,6 +2,7 @@ package com.utcn.demo.service;
 
 import com.utcn.demo.entity.Order;
 import com.utcn.demo.entity.OrderProduct;
+import com.utcn.demo.entity.OrderReview;
 import com.utcn.demo.entity.Product;
 import com.utcn.demo.repository.ProductRepository;
 import jakarta.transaction.Transactional;
@@ -50,6 +51,14 @@ public class ProductService {
         } else {
             throw new RuntimeException("Product not found");
         }
+    }
+
+    public Product findProductById(int id) {
+        Optional<Product> optional = productRepository.findById(id);
+        if(optional.isPresent()){
+            return  optional.get();
+        }
+        else throw new RuntimeException("Product not found");
     }
 
 }

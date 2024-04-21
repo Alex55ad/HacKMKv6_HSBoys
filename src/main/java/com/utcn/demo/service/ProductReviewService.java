@@ -1,5 +1,6 @@
 package com.utcn.demo.service;
 
+import com.utcn.demo.entity.OrderReview;
 import com.utcn.demo.entity.Product;
 import com.utcn.demo.entity.ProductReview;
 import com.utcn.demo.repository.ProductRepository;
@@ -51,4 +52,13 @@ public class ProductReviewService {
         }
         else throw new RuntimeException("Product not found");
     }
+
+    public ProductReview findProductReviewById(int id) {
+        Optional<ProductReview> optional = productReviewRepository.findById(id);
+        if(optional.isPresent()){
+            return  optional.get();
+        }
+        else throw new RuntimeException("Product review not found");
+    }
+
 }

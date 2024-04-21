@@ -28,4 +28,9 @@ public class BusinessRegisterController {
     public void deleteBusinessRegisterById(@RequestParam int id) {
         businessRegisterService.deleteBusinessRegisterById(id);
     }
+
+    @GetMapping("/getById")
+    public BusinessRegister findBusinessRegisterById(@RequestParam int id) {
+        return businessRegisterService.findBusinessRegisterById(id);
+    }
 }

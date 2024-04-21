@@ -5,6 +5,8 @@ import com.utcn.demo.entity.OrderProduct;
 import com.utcn.demo.entity.Product;
 import com.utcn.demo.service.OrderProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +30,16 @@ public class OrderProductController {
     @DeleteMapping("/deleteById")
     public void deleteOrderProductById(@RequestParam int id){
         orderProductService.deleteOrderProductById(id);
+    }
+
+    @GetMapping("/order-products")
+    public ResponseEntity<List<OrderProduct>> findOrderProductsByOrderId(@RequestParam int orderId) {
+        try {
+            List<OrderProduct> orderProducts = orderProductService.findOrderProductsByOrderId(orderId);
+            return ResponseEntity.ok(orderProducts);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Or any other appropriate error response
+        }
     }
 
 }

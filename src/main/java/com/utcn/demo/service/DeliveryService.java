@@ -1,5 +1,6 @@
 package com.utcn.demo.service;
 
+import com.utcn.demo.entity.BusinessRegister;
 import com.utcn.demo.entity.Delivery;
 import com.utcn.demo.entity.Order;
 import com.utcn.demo.entity.Vehicle;
@@ -86,6 +87,14 @@ public class DeliveryService {
             deliveryRepository.save(delivery);
         }
         else throw new RuntimeException("Order not found");
+    }
+
+    public Delivery findDeliveryById(int id) {
+        Optional<Delivery> optional = deliveryRepository.findById(id);
+        if(optional.isPresent()){
+            return  optional.get();
+        }
+        else throw new RuntimeException("Delivery not found");
     }
 
 }
