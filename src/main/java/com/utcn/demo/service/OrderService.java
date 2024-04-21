@@ -1,7 +1,9 @@
 package com.utcn.demo.service;
 
 import com.utcn.demo.entity.Order;
+import com.utcn.demo.entity.User;
 import com.utcn.demo.repository.OrderRepository;
+import com.utcn.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import java.util.Optional;
 public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public List<Order> retrieveOrder(){
         return (List<Order>) this.orderRepository.findAll();
@@ -33,6 +37,11 @@ public class OrderService {
         if(order.isPresent())
             return order.get();
         else throw new RuntimeException("Order not found");
+    }
+
+    public List<Order> findOrdersByUserId(int userId) {
+        Optional<User> user = userRepository.findById(userId);
+        return orderRepository.findByUser(user.get());
     }
 
 }

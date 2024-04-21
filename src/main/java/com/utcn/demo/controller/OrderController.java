@@ -30,11 +30,11 @@ public class OrderController {
         orderService.deleteOrderById(id);
     }
 
-    @GetMapping("/getOrder")
-    public ResponseEntity<Order> findOrderById(@RequestParam int orderId) {
+    @GetMapping("/user")
+    public ResponseEntity<List<Order>> findOrdersByUserId(@RequestParam int userId) {
         try {
-            Order order = orderService.findOrderById(orderId);
-            return ResponseEntity.ok(order);
+            List<Order> orders = orderService.findOrdersByUserId(userId);
+            return ResponseEntity.ok(orders);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Or any other appropriate error response
         }
