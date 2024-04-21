@@ -6,6 +6,7 @@ import com.utcn.demo.entity.OrderProduct;
 import com.utcn.demo.entity.Product;
 import com.utcn.demo.repository.OrderProductRepository;
 import com.utcn.demo.repository.OrderRepository;
+import com.utcn.demo.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ public class OrderProductService {
     private OrderProductRepository orderProductRepository;
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     public List<OrderProduct> retrieveOrderProducts() {
         return(List<OrderProduct>) this.orderProductRepository.findAll();
@@ -45,6 +48,22 @@ public class OrderProductService {
             else throw new RuntimeException("No orderproducts for order");
         }
         else throw new RuntimeException("Order not found");
+    }
+
+    public OrderProduct insertOrderProduct(int productId, int orderId, int amount) {
+        // Fetch the product and order by their IDs
+        Product product = productRepository.findProductById(productId);
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        // Create the OrderProduct object
+        OrderProduct orderProduct = new OrderProduct();
+        orderProduct.setProduct(product);
+        orderProduct.setOrder(order);
+        orderProduct.setQuantity(amount);
+
+        // Save and return the created OrderProduct
+        return orderProductRepository.save(orderProduct);
     }
 
 }

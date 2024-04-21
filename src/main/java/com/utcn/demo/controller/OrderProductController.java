@@ -41,5 +41,18 @@ public class OrderProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Or any other appropriate error response
         }
     }
+    @PostMapping("/insertOP")
+    public ResponseEntity<OrderProduct> insertOrderProduct(
+            @RequestParam("productId") int productId,
+            @RequestParam("orderId") int orderId,
+            @RequestParam("amount") int amount
+    ) {
+        try {
+            OrderProduct orderProduct = orderProductService.insertOrderProduct(productId, orderId, amount);
+            return ResponseEntity.ok(orderProduct);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); // Or any other appropriate error response
+        }
+    }
 
 }
