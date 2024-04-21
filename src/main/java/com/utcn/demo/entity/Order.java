@@ -18,8 +18,8 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderProduct> orderProductList;
+    //@OneToMany(mappedBy = "order")
+    //private List<OrderProduct> orderProductList;
 
     @Column(name="order_date")
     private LocalDateTime date;
@@ -33,10 +33,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, User user, List<OrderProduct> orderProductList, LocalDateTime date, BigDecimal totalAmount, String status) {
+    public Order(int id, User user, LocalDateTime date, BigDecimal totalAmount, String status) {
         this.id = id;
         this.user = user;
-        this.orderProductList = orderProductList;
+        //this.orderProductList = orderProductList;
         this.date = date;
         this.totalAmount = totalAmount;
         this.status = status;
@@ -56,14 +56,6 @@ public class Order {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public List<OrderProduct> getOrderProductList() {
-        return orderProductList;
-    }
-
-    public void setOrderProductList(List<OrderProduct> orderProductList) {
-        this.orderProductList = orderProductList;
     }
 
     public LocalDateTime getDate() {

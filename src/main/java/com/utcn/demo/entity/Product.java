@@ -16,8 +16,6 @@ public class Product {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "product")
-    private List<OrderProduct> orderProductList;
 
     @Column(name="price")
     private BigDecimal price;
@@ -34,10 +32,9 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, List<OrderProduct> orderProductList, BigDecimal price, int stock, String description, BigDecimal score) {
+    public Product(int id, String name, BigDecimal price, int stock, String description, BigDecimal score) {
         this.id = id;
         this.name = name;
-        this.orderProductList = orderProductList;
         this.price = price;
         this.stock = stock;
         this.description = description;
@@ -66,14 +63,6 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<OrderProduct> getOrderProductList() {
-        return orderProductList;
-    }
-
-    public void setOrderProductList(List<OrderProduct> orderProductList) {
-        this.orderProductList = orderProductList;
     }
 
     public BigDecimal getPrice() {
