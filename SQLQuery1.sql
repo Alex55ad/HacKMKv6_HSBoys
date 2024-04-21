@@ -69,7 +69,22 @@ VALUES
     ('Ibuprofen 200 mg tablet', 12, 'Anti-inflammatory medication'),
     ('Naproxen 500 mg tablet', 14, 'Anti-inflammatory medication'),
     ('Amoxicillin 500 mg capsule', 80, 'Antibiotic medication'),
-    ('Azithromycin 250 mg tablet', 19, 'Antibiotic medication');
+    ('Azithromycin 250 mg tablet', 19, 'Antibiotic medication'),
+    ('Paracetamol 500 mg tablet', 10.50, 'Analgesic and antipyretic medication'),
+    ('Omeprazole 20 mg capsule', 25.75, 'Proton-pump inhibitor medication'),
+    ('Loratadine 10 mg tablet', 17.25, 'Antihistamine medication'),
+    ('Metformin 500 mg tablet', 9.80, 'Anti-diabetic medication'),
+    ('Simvastatin 20 mg tablet', 35.20, 'Statins medication'),
+    ('Losartan 50 mg tablet', 22.60, 'Antihypertensive medication'),
+    ('Salbutamol inhaler 100 mcg', 28.90, 'Bronchodilator medication'),
+    ('Fluoxetine 20 mg capsule', 18.40, 'Antidepressant medication'),
+    ('Diazepam 5 mg tablet', 15.70, 'Anxiolytic medication'),
+    ('Cetirizine 10 mg tablet', 12.80, 'Antihistamine medication'),
+    ('Metronidazole 500 mg tablet', 23.60, 'Antibiotic medication'),
+    ('Atorvastatin 40 mg tablet', 40.50, 'Statins medication'),
+    ('Furosemide 40 mg tablet', 11.90, 'Diuretic medication'),
+    ('Lisinopril 10 mg tablet', 19.20, 'Antihypertensive medication'),
+    ('Warfarin 5 mg tablet', 16.80, 'Anticoagulant medication');
 
 -- Table for vehicles
 CREATE TABLE Vehicles (
@@ -168,3 +183,34 @@ CREATE TABLE `order_product` (
     CONSTRAINT `fk_order_product_order` FOREIGN KEY (order_id) REFERENCES `orders` (id) ON DELETE CASCADE,
     CONSTRAINT `fk_order_product_product` FOREIGN KEY (product_id) REFERENCES `products` (id) ON DELETE CASCADE
 );
+
+INSERT INTO order_product (order_id, product_id, quantity)
+VALUES
+    (1, 1, 2), -- Ibuprofen 200 mg tablet
+    (1, 3, 1), -- Amoxicillin 500 mg capsule
+    (1, 6, 3), -- Losartan 50 mg tablet
+    (1, 9, 1); -- Diazepam 5 mg tablet
+
+-- For order with ID 2
+INSERT INTO order_product (order_id, product_id, quantity)
+VALUES
+    (2, 2, 3), -- Naproxen 500 mg tablet
+    (2, 4, 2), -- Azithromycin 250 mg tablet
+    (2, 7, 1), -- Salbutamol inhaler 100 mcg
+    (2, 10, 2); -- Cetirizine 10 mg tablet
+
+-- For order with ID 3
+INSERT INTO order_product (order_id, product_id, quantity)
+VALUES
+    (3, 5, 4), -- Simvastatin 20 mg tablet
+    (3, 8, 2), -- Fluoxetine 20 mg capsule
+    (3, 11, 3), -- Metronidazole 500 mg tablet
+    (3, 13, 1); -- Furosemide 40 mg tablet
+
+-- For order with ID 4
+INSERT INTO order_product (order_id, product_id, quantity)
+VALUES
+    (4, 1, 1), -- Ibuprofen 200 mg tablet
+    (4, 3, 2), -- Amoxicillin 500 mg capsule
+    (4, 6, 2), -- Losartan 50 mg tablet
+    (4, 12, 1); -- Atorvastatin 40 mg tablet
