@@ -29,7 +29,6 @@ public class OrderController {
     public void deleteOrderById(@RequestParam int id){
         orderService.deleteOrderById(id);
     }
-
     @GetMapping("/user")
     public ResponseEntity<List<Order>> findOrdersByUserId(@RequestParam int userId) {
         try {
