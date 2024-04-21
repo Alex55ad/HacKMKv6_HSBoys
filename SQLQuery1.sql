@@ -64,27 +64,27 @@ CREATE TABLE Products (
 );
 
 -- Insert random product data
-INSERT INTO Products (name, price, description)
+INSERT INTO Products (name, price, description, stock)
 VALUES
-    ('Ibuprofen 200 mg tablet', 12, 'Anti-inflammatory medication'),
-    ('Naproxen 500 mg tablet', 14, 'Anti-inflammatory medication'),
-    ('Amoxicillin 500 mg capsule', 80, 'Antibiotic medication'),
-    ('Azithromycin 250 mg tablet', 19, 'Antibiotic medication'),
-    ('Paracetamol 500 mg tablet', 10.50, 'Analgesic and antipyretic medication'),
-    ('Omeprazole 20 mg capsule', 25.75, 'Proton-pump inhibitor medication'),
-    ('Loratadine 10 mg tablet', 17.25, 'Antihistamine medication'),
-    ('Metformin 500 mg tablet', 9.80, 'Anti-diabetic medication'),
-    ('Simvastatin 20 mg tablet', 35.20, 'Statins medication'),
-    ('Losartan 50 mg tablet', 22.60, 'Antihypertensive medication'),
-    ('Salbutamol inhaler 100 mcg', 28.90, 'Bronchodilator medication'),
-    ('Fluoxetine 20 mg capsule', 18.40, 'Antidepressant medication'),
-    ('Diazepam 5 mg tablet', 15.70, 'Anxiolytic medication'),
-    ('Cetirizine 10 mg tablet', 12.80, 'Antihistamine medication'),
-    ('Metronidazole 500 mg tablet', 23.60, 'Antibiotic medication'),
-    ('Atorvastatin 40 mg tablet', 40.50, 'Statins medication'),
-    ('Furosemide 40 mg tablet', 11.90, 'Diuretic medication'),
-    ('Lisinopril 10 mg tablet', 19.20, 'Antihypertensive medication'),
-    ('Warfarin 5 mg tablet', 16.80, 'Anticoagulant medication');
+    ('Ibuprofen 200 mg tablet', 12, 'Anti-inflammatory medication', 500),
+    ('Naproxen 500 mg tablet', 14, 'Anti-inflammatory medication', 350),
+    ('Amoxicillin 500 mg capsule', 80, 'Antibiotic medication', 200),
+    ('Azithromycin 250 mg tablet', 19, 'Antibiotic medication', 150),
+    ('Paracetamol 500 mg tablet', 10.50, 'Analgesic and antipyretic medication', 600),
+    ('Omeprazole 20 mg capsule', 25.75, 'Proton-pump inhibitor medication', 400),
+    ('Loratadine 10 mg tablet', 17.25, 'Antihistamine medication', 300),
+    ('Metformin 500 mg tablet', 9.80, 'Anti-diabetic medication', 550),
+    ('Simvastatin 20 mg tablet', 35.20, 'Statins medication', 250),
+    ('Losartan 50 mg tablet', 22.60, 'Antihypertensive medication', 400),
+    ('Salbutamol inhaler 100 mcg', 28.90, 'Bronchodilator medication', 200),
+    ('Fluoxetine 20 mg capsule', 18.40, 'Antidepressant medication', 350),
+    ('Diazepam 5 mg tablet', 15.70, 'Anxiolytic medication', 300),
+    ('Cetirizine 10 mg tablet', 12.80, 'Antihistamine medication', 450),
+    ('Metronidazole 500 mg tablet', 23.60, 'Antibiotic medication', 150),
+    ('Atorvastatin 40 mg tablet', 40.50, 'Statins medication', 200),
+    ('Furosemide 40 mg tablet', 11.90, 'Diuretic medication', 500),
+    ('Lisinopril 10 mg tablet', 19.20, 'Antihypertensive medication', 350),
+    ('Warfarin 5 mg tablet', 16.80, 'Anticoagulant medication', 400);
 
 -- Table for vehicles
 CREATE TABLE Vehicles (
