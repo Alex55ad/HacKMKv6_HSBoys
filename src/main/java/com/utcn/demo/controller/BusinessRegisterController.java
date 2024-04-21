@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RequestMapping("/business")
 @RestController
+@CrossOrigin
 public class BusinessRegisterController {
 
     @Autowired

@@ -9,6 +9,7 @@ import java.util.List;
 
 @RequestMapping("/orderReview")
 @RestController
+@CrossOrigin
 public class OrderReviewController {
 
     @Autowired

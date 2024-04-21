@@ -9,6 +9,7 @@ import java.util.List;
 
 @RequestMapping("/vehicle")
 @RestController
+@CrossOrigin
 public class VehicleController {
 
     @Autowired
