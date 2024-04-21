@@ -8,3 +8,34 @@
     font-size: rem(50px);
   }
 }
+
+/* Test.module.css */
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 100px); /* Assuming your header takes up 100px */
+  margin-top: 20px; /* Space below the navbar */
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  width: 100%; /* Adjust width as needed */
+  text-align: center;
+}
+
+
+
+/* You might need to adjust the width of the Navbar and the Table to ensure they fit side by side */
+.navbar {
+  flex: 1; /* Adjust flex-basis as necessary, or set a fixed width */
+}
+
+.table {
+  flex: 3; /* Adjust flex-basis as necessary, or set a fixed width */
+}
+
+
+
