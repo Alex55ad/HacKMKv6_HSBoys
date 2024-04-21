@@ -29,6 +29,7 @@ public class OrderController {
     public void deleteOrderById(@RequestParam int id){
         orderService.deleteOrderById(id);
     }
+
     @GetMapping("/user")
     public ResponseEntity<List<Order>> findOrdersByUserId(@RequestParam int userId) {
         try {
@@ -38,4 +39,15 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Or any other appropriate error response
         }
     }
+
+    @PutMapping("/{orderId}/update-price")
+    public ResponseEntity<Order> updateOrderPrice(@PathVariable int orderId) {
+        try {
+            Order updatedOrder = orderService.updateOrderPrice(orderId);
+            return ResponseEntity.ok(updatedOrder);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Or any other appropriate error response
+        }
+    }
+
 }
